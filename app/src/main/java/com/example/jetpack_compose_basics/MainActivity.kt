@@ -17,16 +17,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApp()
+            MyApp {
+                Greeting("Android")
+            }
         }
     }
 }
 
 @Composable
-fun MyApp() {
+fun MyApp(content: @Composable () -> Unit) {
     JetpackComposebasicsTheme {
         Surface(color = Color.Yellow) {
-            Greeting("Android")
+            content()
         }
     }
 }
@@ -39,5 +41,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true, name = "Text preview")
 @Composable
 fun DefaultPreview() {
-    MyApp()
+    MyApp {
+        Greeting("Android")
+    }
 }
