@@ -28,9 +28,9 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun JetpackComposebasicsTheme(
+fun JetpackComposeBasicsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
         DarkColorPalette
@@ -38,10 +38,7 @@ fun JetpackComposebasicsTheme(
         LightColorPalette
     }
 
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+    MaterialTheme(colors = colors) {
+        content()
+    }
 }
